@@ -1,0 +1,24 @@
+#include <iostream>
+
+ListNode *addTwoNumbers(ListNode* l1, ListNode *l2) {
+	ListNode dummy(-1);
+
+	int c = 0;
+	ListNode *prev = &dummy;
+
+	for (ListNode *pa = l1, *pb = l2;
+		pa != nullptr || pb != nullptr;
+		pa = pa == nullptr ? nullptr : pa->next,
+		pb = pb == nullptr ? nullptr : pb->next,
+		prev = prev->next) {
+		const int ai = pa == nullptr ? 0 : pa->val;
+		const int bi = pb == nullptr ? 0 : pb->val;
+		const int value = (ai+bi+c) % 10;
+		c = (ai+bi+c) /10;
+		prev->next = new ListNode(value);
+	}
+
+	if (c > 0)
+		prev->next = new ListNode(c);
+	return dummy.next;
+}
