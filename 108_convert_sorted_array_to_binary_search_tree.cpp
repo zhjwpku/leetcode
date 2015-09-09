@@ -11,8 +11,8 @@ TreeNode* sortedArrayToBST(vector<int> &nums, int l, int r) {
 
 	int mid = (l + r) / 2;
 	TreeNode *root = new TreeNode(nums[mid]);
-	TreeNode *left = sortedArrayToBST(nums, left, mid-1);
-	TreeNode *right = sortedArrayToBST(nums, mid+1, right);
+	TreeNode *left = sortedArrayToBST(nums, l, mid-1);
+	TreeNode *right = sortedArrayToBST(nums, mid+1, r);
 
 	root->left = left;
 	root->right = right;
