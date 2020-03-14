@@ -5,12 +5,12 @@
 #define MAX_N   100
 
 int parent[MAX_N];      // parent of the node
-int rank[MAX_N];        // rank of the tree
+int ranks[MAX_N];        // rank of the tree
 
-void init(n) {
+void init(int n) {
     for (int i = 0; i < n; i++) {
         parent[i] = i;
-        rank[i] = 1;
+        ranks[i] = 1;
     }
 }
 
@@ -30,11 +30,11 @@ void union_(int x, int y) {
         return;
     }
 
-    if (rank[x] > rank[y]) {
+    if (ranks[x] > ranks[y]) {
         parent[y] = x;
-    } else if (rank[x] == rank[y]) {
+    } else if (ranks[x] == ranks[y]) {
         parent[y] = x;
-        rank[x]++;
+        ranks[x]++;
     } else {
         parent[x] = y;
     }
