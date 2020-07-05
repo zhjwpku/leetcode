@@ -18,7 +18,7 @@ add_library(GTest::MAIN ALIAS gtest_main)
 
 add_executable(
     unit_tests
-    solutions/50_pow.cpp
+    weekly-contest-196/count-submatrices-with-all-ones.cc
     )
 
 target_link_libraries(
