@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10.0)
+cmake_minimum_required(VERSION 3.5.0)
 
 project(leetcode CXX)
 
@@ -9,22 +9,22 @@ if(CMAKE_CXX_COMPILER_ID MATCHES GNU)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
 endif()
 
+add_subdirectory(googletest)
+add_library(GMock::GMock ALIAS gmock)
+add_library(GMock::Main ALIAS gmock_main)
+
+add_library(GTest::GTest ALIAS gtest)
+add_library(GTest::MAIN ALIAS gtest_main)
+
 add_executable(
     unit_tests
-    main.cc
-    solutions/1135_connecting_cities_with_minimum_costs.cpp
-    solutions/778_swim_in_rising_water.cc
+    solutions/50_pow.cpp
     )
-
-target_include_directories(unit_tests
-                           PRIVATE /usr/local/include)
-
-target_link_directories(unit_tests
-                        PRIVATE /usr/local/lib)
 
 target_link_libraries(
     unit_tests
     gtest
+    gtest_main
     pthread)
 
 enable_testing()

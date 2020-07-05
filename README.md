@@ -1,16 +1,23 @@
-# leetcode C++ workspace
+# leetcode solutions project framework
 
-I use cmake to build this project, and googletest to work around the solutions.
+## Vagrant
 
-The CMakeLists.txt are somewhat borrowed from [Unit test demo using Google Test.][gtest-demo]
+You should installed [virtualbox](https://www.virtualbox.org/) and [vagrant](https://www.vagrantup.com/) on your host machine.
 
-[gtest-demo]: https://github.com/bast/gtest-demo
-
+```
+## The following command should run on your host machine.
+git clone https://github.com/zhjwpku/leetcode.git
+cd leetcode
+git submodule update --init --recursive
+vagrant up
+vagrant ssh
+```
 
 ## HOW TO RUN
 
 ```
-mkdir build && cd build
+## The following command should run in the VM after the vagrant ssh
+cd leetcode && mkdir -p build && cd build
 cmake .. && make
 ctest
 ```

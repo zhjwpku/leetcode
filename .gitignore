@@ -1,3 +1,10 @@
 a.out
 *.o
 build
+
+# Vagrant
+*.log
+.vagrant
+
+# vscode
+.vscode
